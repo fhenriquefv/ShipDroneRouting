@@ -11,6 +11,7 @@
 #include "Customer.h"
 #include "Drone.h"
 #include "Demand.h"
+#include <iostream>
 #include "Ship.h"
 #include <string>
 #include <vector>
@@ -19,7 +20,7 @@ using namespace std;
 
 class ProblemData {
 public:
-	ProblemData();
+
 	virtual ~ProblemData();
 
 	const string getInstanceName(){return instanceName;}
@@ -28,7 +29,22 @@ public:
 	void addDrone(Drone* drone){droneList.push_back(drone);}
 	void addDemand(Demand* demand){demandList.push_back(demand);}
 	void addShip(Ship* ship){shipList.push_back(ship);}
+	static ProblemData* getInstance(){
+		if(problemData == NULL)
+		{
+
+			problemData = new ProblemData();
+		}
+		return problemData;
+	}
+	bool generateRandomInstance(int numDrones, int numShips);
 private:
+
+	ProblemData();
+	void generateDroneList(int numDrones);
+	void generateShipList(int numShips);
+
+	static ProblemData* problemData;
 	string instanceName;
 	vector<Drone*> droneList;
 	vector<Demand*> demandList;

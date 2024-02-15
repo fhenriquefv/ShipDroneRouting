@@ -6,10 +6,13 @@
  */
 
 #include "Demand.h"
+#include <iostream>
 
 Demand::Demand() {
-	// TODO Auto-generated constructor stub
-
+	this->id = -1;
+	this->volume = 0;
+	this->weight = 0;
+	this->customer = NULL;
 }
 
 Demand::~Demand() {

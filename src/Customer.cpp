@@ -8,8 +8,9 @@
 #include "Customer.h"
 
 Customer::Customer() {
-	// TODO Auto-generated constructor stub
-
+	this->id = -1;
+	this->latitude = 0;
+	this->longitude = 0;
 }
 
 Customer::~Customer() {

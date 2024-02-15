@@ -23,11 +23,15 @@ public:
 	const float getMaxWeightCapacity(){return maxWeightCapacity;}
 	void setMaxWeightCapacity(const float maxWeightCapacity){this->maxWeightCapacity = maxWeightCapacity;}
 
+	const float getEmptyWeight(){return emptyWeight;}
+	void setEmptyWeight(const float emptyWeight){this->emptyWeight = emptyWeight;}
+
 	const vector<DroneVelocityLevel*> getVelocityLevelList(){return velocityLevelList;}
 	void addVelocityLevel(DroneVelocityLevel* velLevel){velocityLevelList.push_back(velLevel);};
 
 private:
 	int id;
+	float emptyWeight;
 	float maxWeightCapacity;
 	float maxVolumeCapacity;
 	vector<DroneVelocityLevel*> velocityLevelList;

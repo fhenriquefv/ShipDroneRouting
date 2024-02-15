@@ -9,6 +9,8 @@
 #define SHIP_H_
 #include<vector>
 #include "Drone.h"
+#include "ShipVelocityLevel.h"
+
 using namespace std;
 
 class Ship {
@@ -24,11 +26,14 @@ public:
 
 	const vector<Drone*> getDroneList(){return droneList;}
 
+	void addDrone(Drone* drone);
+	void addShipVelocityLevel(ShipVelocityLevel* shipVel);
+
 private:
 	int id;
 	vector<Drone*> droneList;
 	float maxWeightCapaity;
-
+	vector<ShipVelocityLevel*> velocityLevelList;
 };
 
 #endif /* SHIP_H_ */

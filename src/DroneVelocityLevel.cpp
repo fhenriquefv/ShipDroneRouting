@@ -8,7 +8,10 @@
 #include "DroneVelocityLevel.h"
 
 DroneVelocityLevel::DroneVelocityLevel() {
-	// TODO Auto-generated constructor stub
+	this->id = -1;
+	this->energyByKM = 0;
+	this->velocity = 0;
+	this->description = "";
 
 }
 

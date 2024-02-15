@@ -26,14 +26,19 @@ public:
 	const float getEnergyByKM(){return energyByKM;}
 	void setEnergyByKM(const int energyByKM){this->energyByKM = energyByKM;}
 
+	const float getMaxFlightDuration(){return maxFlightDuration;}
+	void setMaxFlightDuration(const int maxFlightDuration){this->maxFlightDuration = maxFlightDuration;}
+
 	const string getDescription(){return description;}
 	void setDescription(const string description){this->description = description;}
 
 private:
 	int id;
 	float velocity;
-	float energyByKM;
+	float energyByKM; //energia gasta por KM por KG neste nível de velocidade por hora
+	float maxFlightDuration; //0.5h
 	string description;
+
 };
 
 #endif /* DRONEVELOCITYLEVEL_H_ */

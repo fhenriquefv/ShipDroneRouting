@@ -7,12 +7,22 @@
 
 #include "Ship.h"
 
-Ship::Ship() {
-	// TODO Auto-generated constructor stub
-
+Ship::Ship()
+{
+	this->id = -1;
+	this->maxWeightCapaity = 0;
 }
 
-Ship::~Ship() {
+Ship::~Ship()
+{
 	// TODO Auto-generated destructor stub
+}
+void Ship::addDrone(Drone* drone)
+{
+	droneList.push_back(drone);
+}
+void Ship::addShipVelocityLevel(ShipVelocityLevel* shipVel)
+{
+	velocityLevelList.push_back(shipVel);
 }
 

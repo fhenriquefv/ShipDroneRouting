@@ -8,8 +8,9 @@
 #include "Drone.h"
 
 Drone::Drone() {
-	// TODO Auto-generated constructor stub
-
+	this->id = -1;
+	this->maxVolumeCapacity = 0;
+	this->maxWeightCapacity = 0;
 }
 
 Drone::~Drone() {
