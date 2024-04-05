@@ -6,6 +6,7 @@
  */
 
 #include "Ship.h"
+#include "ProblemData.h"
 
 Ship::Ship()
 {
@@ -25,4 +26,14 @@ void Ship::addShipVelocityLevel(ShipVelocityLevel* shipVel)
 {
 	velocityLevelList.push_back(shipVel);
 }
+float Ship::calculateEdgeCost(Vertex* i, Vertex* j)
+{
+	ProblemData* data = ProblemData::getInstance();
+	float edgeCost = 0.0;
 
+	if(i != NULL)
+	{
+		float distance = i->getPoint()->getDistance(j->getPoint());
+	}
+	return edgeCost;
+}

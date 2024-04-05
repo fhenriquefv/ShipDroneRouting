@@ -5,13 +5,17 @@
  *      Author: 55219
  */
 
-#ifndef CUSTOMER_H_
-#define CUSTOMER_H_
+#ifndef POINT_H_
+#define POINT_H_
+#include <string>
 
-class Customer {
+using namespace std;
+
+
+class Point {
 public:
-	Customer();
-	virtual ~Customer();
+	Point();
+	virtual ~Point();
 
 	const int getId(){return id;}
 	void setId(const int id){this->id = id;}
@@ -22,10 +26,21 @@ public:
 	const float getLongitude(){return longitude;}
 	void setLongitude(const float longitude){this->longitude = longitude;}
 
+	const int getPointType(){return pointType;}
+	void setPointType(const int pointType){this->pointType = pointType;}
+
+	const string toString();
+
+	float getDistance(Point* point);
+
+	static int CUSTOMER_POINT;
+	static int TERMINAL_POINT;
+
 private:
 	int id;
 	float latitude;
 	float longitude;
+	int pointType;
 };
 
-#endif /* CUSTOMER_H_ */
+#endif /* POINT_H_ */

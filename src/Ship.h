@@ -7,9 +7,11 @@
 
 #ifndef SHIP_H_
 #define SHIP_H_
+
 #include<vector>
 #include "Drone.h"
 #include "ShipVelocityLevel.h"
+#include "Vertex.h"
 
 using namespace std;
 
@@ -28,12 +30,17 @@ public:
 
 	void addDrone(Drone* drone);
 	void addShipVelocityLevel(ShipVelocityLevel* shipVel);
+	float calculateEdgeCost(Vertex* i, Vertex* j);
+
+
+
 
 private:
 	int id;
 	vector<Drone*> droneList;
 	float maxWeightCapaity;
 	vector<ShipVelocityLevel*> velocityLevelList;
+
 };
 
 #endif /* SHIP_H_ */

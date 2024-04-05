@@ -7,6 +7,7 @@
 
 #include "Demand.h"
 #include <iostream>
+#include <sstream>
 
 Demand::Demand() {
 	this->id = -1;
@@ -17,5 +18,12 @@ Demand::Demand() {
 
 Demand::~Demand() {
 	// TODO Auto-generated destructor stub
+}
+
+const string Demand::toString()
+{
+	std::ostringstream oss;
+	oss << "id = " << id << " volume = " << volume << " weight = " << weight << " customer = [ "<< customer->toString() << " ]" ;
+	return oss.str();
 }
 
