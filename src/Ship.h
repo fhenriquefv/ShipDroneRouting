@@ -12,6 +12,7 @@
 #include "Drone.h"
 #include "ShipVelocityLevel.h"
 #include "Vertex.h"
+#include "ShipVertex.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ public:
 
 	void addDrone(Drone* drone);
 	void addShipVelocityLevel(ShipVelocityLevel* shipVel);
-	float calculateEdgeCost(Vertex* i, Vertex* j);
+	float calculateEdgeCost(ShipVertex* i, ShipVertex* j);
 
 
 

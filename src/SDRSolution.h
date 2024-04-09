@@ -10,8 +10,10 @@
 
 #include <map>
 #include "Drone.h"
+#include "DroneRoute.h"
 #include "Point.h"
 #include "Ship.h"
+#include "ShipRoute.h"
 #include <vector>
 #include "Vertex.h"
 
@@ -27,9 +29,9 @@ public:
 	float calculateObjectiveFunction();
 private:
 	//para cada par ship, drone armazena a rota do respectivo drone
-	map<pair<Ship*,Drone*>, vector<Vertex*> > shipDroneRoute;
+	map<pair<Ship*,Drone*>, DroneRoute* > shipDroneRoute;
 	//para cada ship, armazena a rota do navio por terminais
-	map<Ship*, vector<Vertex*> > shipRoute;
+	map<Ship*, ShipRoute* > shipRoute;
 
 	float cost;
 };

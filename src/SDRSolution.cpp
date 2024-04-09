@@ -25,6 +25,9 @@ float SDRSolution::calculateObjectiveFunction()
 	//ship travel cost
 	float shipCost = 0.0;
 
+	//drone travel cost
+	float droneCost = 0.0;
+
 	//Get the ship list
 	vector<Ship*> shipList = data->getShipList();
 	vector<Ship*>::iterator itShip = shipList.begin();
@@ -33,17 +36,19 @@ float SDRSolution::calculateObjectiveFunction()
 		Ship* ship = *itShip;
 
 		//Calculate ship route cost
-		map<Ship*, vector<Vertex*> >::iterator itRoute = this->shipRoute.find(ship);
+		map<Ship*, ShipRoute* >::iterator itRoute = this->shipRoute.find(ship);
 		if(itRoute != this->shipRoute.end())
 		{
-			vector<Vertex*> route = itRoute->second;
+			ShipRoute* sRoute = itRoute->second;
+			if(sRoute == NULL) continue;
+			vector<ShipVertex*> route = sRoute->getShipRouteVertices();
 
-			vector<Vertex*>::iterator itVertex = route.begin();
-			Vertex* i = *itVertex;
+			vector<ShipVertex*>::iterator itVertex = route.begin();
+			ShipVertex* i = *itVertex;
 			itVertex++;
 			for(;itVertex != route.end(); itVertex++)
 			{
-				Vertex* j = *itVertex;
+				ShipVertex* j = *itVertex;
 				shipCost += ship->calculateEdgeCost(i,j);
 			}
 
@@ -52,10 +57,32 @@ float SDRSolution::calculateObjectiveFunction()
 		}
 
 		//For each drone, calculate drone route cost
-		//map<pair<Ship*,Drone*>, vector<Vertex*> >::iterator itShipDroneRoute =  shipDroneRoute.find(make_pair())
+		vector<Drone*> droneList = ship->getDroneList();
+		vector<Drone*>::iterator itDrone = droneList.begin();
+		for(;itDrone != droneList.end(); itDrone++)
+		{
+			Drone* drone = *itDrone;
+			map<pair<Ship*,Drone*>, DroneRoute* >::iterator itShipDroneRoute
+													=  shipDroneRoute.find(make_pair(ship, drone));
+			if(itShipDroneRoute != shipDroneRoute.end())
+			{
+				if(itShipDroneRoute->second == NULL) continue;
+				DroneRoute* dRoute = itShipDroneRoute->second;
+				vector<DroneVertex*> droneRoute = dRoute->getDroneVertices();
+				vector<DroneVertex*>::iterator itVertexDroneRoute = droneRoute.begin();
+				DroneVertex* i = *itVertexDroneRoute;
+				itVertexDroneRoute++;
+				for(;itVertexDroneRoute != droneRoute.end(); itVertexDroneRoute++)
+				{
+					DroneVertex* j = *itVertexDroneRoute;
+					droneCost += drone->calculateEdgeCost(i,j);
+				}
+			}
+
+		}
 
 	}
 
-	return 0.0;
+	return shipCost + droneCost;
 }
 

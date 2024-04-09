@@ -6,6 +6,7 @@
  */
 
 #include "Drone.h"
+#include "ProblemData.h"
 
 Drone::Drone() {
 	this->id = -1;
@@ -17,3 +18,15 @@ Drone::~Drone() {
 	// TODO Auto-generated destructor stub
 }
 
+float Drone::calculateEdgeCost(Vertex* i, Vertex* j)
+{
+	ProblemData* data = ProblemData::getInstance();
+	float edgeCost = 0.0;
+
+	if(i != NULL)
+	{
+		float distance = i->getPoint()->getDistance(j->getPoint());
+	}
+	return edgeCost;
+
+}

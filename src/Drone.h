@@ -10,6 +10,8 @@
 
 #include<vector>
 #include "DroneVelocityLevel.h"
+#include "Vertex.h"
+
 using namespace std;
 
 class Drone {
@@ -28,6 +30,8 @@ public:
 
 	const vector<DroneVelocityLevel*> getVelocityLevelList(){return velocityLevelList;}
 	void addVelocityLevel(DroneVelocityLevel* velLevel){velocityLevelList.push_back(velLevel);};
+
+	float calculateEdgeCost(Vertex* i, Vertex* j);
 
 private:
 	int id;

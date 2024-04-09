@@ -26,7 +26,7 @@ void Ship::addShipVelocityLevel(ShipVelocityLevel* shipVel)
 {
 	velocityLevelList.push_back(shipVel);
 }
-float Ship::calculateEdgeCost(Vertex* i, Vertex* j)
+float Ship::calculateEdgeCost(ShipVertex* i, ShipVertex* j)
 {
 	ProblemData* data = ProblemData::getInstance();
 	float edgeCost = 0.0;

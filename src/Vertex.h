@@ -24,6 +24,7 @@ public:
 	float getOutputWeight(){return outputWeight;}
 	void setOutputWeight(float weight) {this->outputWeight = weight;}
 
+
 private:
 
 	Point* point;
